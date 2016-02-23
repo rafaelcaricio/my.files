@@ -26,3 +26,7 @@
 (define-key evil-motion-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-motion-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-motion-state-map (kbd "C-l") 'evil-window-right)
+
+;; Custom split windows
+(define-key evil-motion-state-map "-" 'evil-window-split)
+(define-key evil-motion-state-map "|" 'evil-window-vsplit)

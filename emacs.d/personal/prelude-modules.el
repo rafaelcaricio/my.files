@@ -38,4 +38,9 @@
 (require 'prelude-web) ;; Emacs mode for web templates
 (require 'prelude-xml)
 (require 'prelude-yaml)
+
+(unless (package-installed-p 'evil-leader)
+  (package-install 'evil-leader))
+(unless (package-installed-p 'neotree)
+  (package-install 'neotree))
 ;;; prelude-modules.el ends here

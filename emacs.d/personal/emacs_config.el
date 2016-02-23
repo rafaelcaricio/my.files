@@ -33,3 +33,14 @@
 
 ;; Don't wait for any other keys after escape is pressed.
 (setq evil-esc-delay 0)
+
+;; Configure leader key
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
+(evil-leader/set-key
+  "." 'find-tag
+  "t" 'projectile-find-file
+  "p" 'projectile-switch-project
+  "v" 'evil-window-vsplit
+  "w" 'evil-window-split
+  "z" 'neotree-toggle)

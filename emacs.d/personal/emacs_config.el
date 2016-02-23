@@ -84,6 +84,10 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 (setq linum-format "%4d ")
 
+;; Activate theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'dracula t)
+
 ;; Highlight cursor line
 (global-hl-line-mode t)
 (set-face-background hl-line-face "gray10")

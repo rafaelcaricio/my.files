@@ -45,4 +45,6 @@
   (package-install 'neotree))
 (unless (package-installed-p 'flx-ido)
   (package-install 'flx-ido))
+(unless (package-installed-p 'dracula-theme)
+  (package-install 'dracula-theme))
 ;;; prelude-modules.el ends here

@@ -87,3 +87,8 @@
 ;; Highlight cursor line
 (global-hl-line-mode t)
 (set-face-background hl-line-face "gray10")
+
+;; Use 2 spaces in yaml files
+(add-hook 'yaml-mode-hook (lambda ()
+                            (setq evil-shift-width 2)
+                            (setq tab-width 2)))

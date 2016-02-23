@@ -30,3 +30,6 @@
 ;; Custom split windows
 (define-key evil-motion-state-map "-" 'evil-window-split)
 (define-key evil-motion-state-map "|" 'evil-window-vsplit)
+
+;; Don't wait for any other keys after escape is pressed.
+(setq evil-esc-delay 0)

@@ -43,4 +43,6 @@
   (package-install 'evil-leader))
 (unless (package-installed-p 'neotree)
   (package-install 'neotree))
+(unless (package-installed-p 'flx-ido)
+  (package-install 'flx-ido))
 ;;; prelude-modules.el ends here

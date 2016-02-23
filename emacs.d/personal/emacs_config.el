@@ -21,6 +21,16 @@
 (tool-bar-mode 1)
 (menu-bar-mode 1)
 
+;; Show listing of files vertically
+(setq ido-decorations (quote ("\n↪ "     "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+
+
+;; better file matching
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+
 ;; Personalized keybindings
 (define-key evil-motion-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-motion-state-map (kbd "C-j") 'evil-window-down)

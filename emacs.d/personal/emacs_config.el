@@ -64,6 +64,7 @@
   "w" 'evil-window-split
   "z" 'neotree-toggle)
 
+;; Commands to work in neotree
 (add-hook 'neotree-mode-hook
  (lambda ()
    (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
@@ -75,3 +76,10 @@
    (define-key evil-normal-state-local-map (kbd "r") 'neotree-refresh)
    (define-key evil-normal-state-local-map (kbd "mm") 'neotree-rename-node)
 ))
+
+;; Show the column number in the status bar
+(column-number-mode t)
+
+;; Show line-number in buffer
+(add-hook 'prog-mode-hook 'linum-mode)
+(setq linum-format "%4d ")

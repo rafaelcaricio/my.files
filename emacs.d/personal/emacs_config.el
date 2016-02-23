@@ -21,6 +21,15 @@
 (tool-bar-mode 1)
 (menu-bar-mode 1)
 
+;; Auto-complete options
+(global-company-mode t)
+(setq company-tooltip-limit 12)                      ; bigger popup window
+(setq company-idle-delay .1)                         ; decrease delay before autocompletion popup shows
+(setq company-echo-delay 0)                          ; remove annoying blinking
+(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+(setq company-dabbrev-downcase nil)                  ; Do not convert to lowercase
+(setq company-selection-wrap-around t)               ; continue from top when reaching bottom
+
 ;; Show listing of files vertically
 (setq ido-decorations (quote ("\n↪ "     "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
 

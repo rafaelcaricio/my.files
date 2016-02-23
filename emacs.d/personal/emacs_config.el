@@ -83,3 +83,7 @@
 ;; Show line-number in buffer
 (add-hook 'prog-mode-hook 'linum-mode)
 (setq linum-format "%4d ")
+
+;; Highlight cursor line
+(global-hl-line-mode t)
+(set-face-background hl-line-face "gray10")

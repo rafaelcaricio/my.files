@@ -10,16 +10,19 @@
 ;;smooth scrolling
 (setq prelude-use-smooth-scrolling t)
 
+;; Don't wait for any other keys after escape is pressed.
+(setq evil-esc-delay 1)
+
 ;; use the brew python version
 (setq anaconda-mode-server-script
       "/usr/local/lib/python2.7/site-packages/anaconda_mode.py")
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; display options                                                        ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;enable tool and menu bars - good for beginners
+;; display options
 (tool-bar-mode 1)
 (menu-bar-mode 1)
+
+;; Makes visible trailing whitespace
+(setq show-trailing-whitespace t)
 
 ;; Auto-complete options
 (global-company-mode t)
@@ -33,7 +36,6 @@
 ;; Show listing of files vertically
 (setq ido-decorations (quote ("\n↪ "     "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
 
-
 ;; better file matching
 (require 'flx-ido)
 (ido-mode 1)
@@ -46,12 +48,12 @@
 (define-key evil-motion-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-motion-state-map (kbd "C-l") 'evil-window-right)
 
+;; Kill all buffers of a project
+(define-key evil-motion-state-map (kbd "C-a") 'projectile-kill-buffers)
+
 ;; Custom split windows
 (define-key evil-motion-state-map "-" 'evil-window-split)
 (define-key evil-motion-state-map "|" 'evil-window-vsplit)
-
-;; Don't wait for any other keys after escape is pressed.
-(setq evil-esc-delay 0)
 
 ;; Configure leader key
 (global-evil-leader-mode)
@@ -62,7 +64,11 @@
   "p" 'projectile-switch-project
   "v" 'evil-window-vsplit
   "w" 'evil-window-split
-  "z" 'neotree-toggle)
+  "z" 'neotree-toggle
+  "gc" 'comment-or-uncomment-region
+  "gg" 'indent-region
+  "nn" 'untabify
+  "ns" 'delete-trailing-whitespace)
 
 ;; Commands to work in neotree
 (add-hook 'neotree-mode-hook

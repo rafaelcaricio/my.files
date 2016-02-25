@@ -102,3 +102,29 @@
 (add-hook 'yaml-mode-hook (lambda ()
                             (setq evil-shift-width 2)
                             (setq tab-width 2)))
+
+;; _ should be part of word in all modes
+(modify-syntax-entry (string-to-char "_") "w" (standard-syntax-table))
+(modify-syntax-entry (string-to-char "_") "w" text-mode-syntax-table)
+(modify-syntax-entry (string-to-char "_") "w" lisp-mode-syntax-table)
+(modify-syntax-entry (string-to-char "_") "w" emacs-lisp-mode-syntax-table)
+;; (modify-syntax-entry (string-to-char "_") "w" clojure-mode-syntax-table)
+(modify-syntax-entry (string-to-char "_") "w" python-mode-syntax-table)
+(modify-syntax-entry (string-to-char "_") "w" js-mode-syntax-table)
+
+;; File handling
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(require 'mmm-mode)
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(mmm-add-classes
+    '((markdown-python
+        :submode python-mode
+        :face mmm-declaration-submode-face
+        :front "^```python$"
+        :back "^```$")))
+(setq mmm-submode-decoration-level 0)
+(add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-python))

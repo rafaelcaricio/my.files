@@ -47,4 +47,8 @@
   (package-install 'flx-ido))
 (unless (package-installed-p 'dracula-theme)
   (package-install 'dracula-theme))
+(unless (package-installed-p 'mmm-mode)
+  (package-install 'mmm-mode))
+(unless (package-installed-p 'markdown-mode)
+  (package-install 'markdown-mode))
 ;;; prelude-modules.el ends here

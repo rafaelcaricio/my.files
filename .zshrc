@@ -57,7 +57,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export TERM="xterm-256color"
 
 # python virtualenvwrapper configuration
-export VENVS="~/.pyvirtualenvs"
+export WORKON_HOME="~/.pyvirtualenvs"
 source /usr/local/bin/virtualenvwrapper.sh
 
 source $ZSH/oh-my-zsh.sh

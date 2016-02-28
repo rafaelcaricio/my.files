@@ -1,0 +1,27 @@
+[user]
+	email = rafael.jacinto@gmail.com
+	name = Rafael Caricio
+[color]
+	ui = always
+	status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
+[alias]
+	st = status
+	co = commit
+	com = "commit -m"
+	purr = "pull --rebase"
+	lg = "log --format='%Cgreen%h %Cred%cr %Creset%s %Cblue%cn'"
+	ll = "log --format='%Cgreen%h %Cred%cr %Creset%s %Cblue%cn'"
+	lgg = "log --graph --color --decorate"
+	last = log -1 HEAD
+[branch]
+	autosetuprebase = always
+	autosetupmerge = true
+[credential]
+	helper = osxkeychain
+[core]
+	editor = vim
+[push]
+	default = tracking

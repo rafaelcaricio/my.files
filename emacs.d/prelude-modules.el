@@ -51,4 +51,6 @@
   (package-install 'mmm-mode))
 (unless (package-installed-p 'markdown-mode)
   (package-install 'markdown-mode))
+(unless (package-installed-p 'dockerfile-mode)
+  (package-install 'dockerfile-mode))
 ;;; prelude-modules.el ends here

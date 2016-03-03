@@ -116,16 +116,19 @@
 ;; File handling
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Enable code highlight in markdown-mode
 (require 'mmm-mode)
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
 (mmm-add-classes
     '((markdown-python
         :submode python-mode
         :face mmm-declaration-submode-face
         :front "^```python$"
         :back "^```$")))
+
 (setq mmm-submode-decoration-level 0)
 (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-python))

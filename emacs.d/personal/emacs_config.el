@@ -74,6 +74,9 @@
   "is" 'py-isort-buffer
   "bd" 'kill-this-buffer)
 
+;; run isort before saving python files
+(add-hook 'before-save-hook 'py-isort-before-save)
+
 ;; Commands to work in neotree
 (add-hook 'neotree-mode-hook
  (lambda ()
@@ -106,3 +109,23 @@
 (add-hook 'yaml-mode-hook (lambda ()
                             (setq evil-shift-width 2)
                             (setq tab-width 2)))
+
+;; Spotify client configuration
+(add-to-list 'load-path "~/development/spotify.el")
+(require 'spotify)
+
+(defun spotify-credentials-config-contents ()
+  "Get contents of ~/.spotify-el file if it exists"
+ (if (= (shell-command "stat ~/.spotify-el") 0)
+   (shell-command-to-string "cat ~/.spotify-el")
+   ""))
+
+(defun spotify-credentials (key)
+  "Get client secret from spotify credentials in ~/.spotify-el"
+  (let ((credentials (spotify-credentials-config-contents)))
+    (save-match-data
+      (string-match (concat (concat "^" key) "=\\([^\s\n]+\\)") credentials)
+      (match-string 1 credentials))))
+
+(setq spotify-oauth2-client-id (spotify-credentials "client-id"))
+(setq spotify-oauth2-client-secret (spotify-credentials "client-secret"))

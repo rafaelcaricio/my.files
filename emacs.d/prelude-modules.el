@@ -53,4 +53,6 @@
   (package-install 'markdown-mode))
 (unless (package-installed-p 'dockerfile-mode)
   (package-install 'dockerfile-mode))
+(unless (package-installed-p 'py-isort)
+  (package-install 'py-isort))
 ;;; prelude-modules.el ends here

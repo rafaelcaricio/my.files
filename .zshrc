@@ -59,6 +59,7 @@ export TERM="xterm-256color"
 # python virtualenvwrapper configuration
 export WORKON_HOME="~/.pyvirtualenvs"
 source /usr/local/bin/virtualenvwrapper.sh
+VIRTUALENV_DISTRIBUTE=1
 
 source $ZSH/oh-my-zsh.sh
 

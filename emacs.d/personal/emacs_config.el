@@ -72,7 +72,11 @@
   "nn" 'untabify
   "ns" 'delete-trailing-whitespace
   "is" 'py-isort-buffer
-  "bd" 'kill-this-buffer)
+  "bd" 'kill-this-buffer
+  "sp" 'spotify-toggle-play
+  "sf" 'spotify-next-track
+  "sb" 'spotify-previous-track
+  "sr" 'spotify-toggle-shuffle)
 
 ;; run isort before saving python files
 (add-hook 'before-save-hook 'py-isort-before-save)

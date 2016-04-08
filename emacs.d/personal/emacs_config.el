@@ -64,8 +64,8 @@
   "." 'find-tag
   "t" 'projectile-find-file
   "p" 'projectile-switch-project
-  "v" 'evil-window-vsplit
-  "w" 'evil-window-split
+  "w" 'evil-window-vsplit
+  "v" 'evil-window-split
   "z" 'neotree-toggle
   "gc" 'comment-or-uncomment-region
   "gg" 'indent-region

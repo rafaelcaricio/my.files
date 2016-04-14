@@ -117,12 +117,13 @@
 ;; Spotify client configuration
 (add-to-list 'load-path "~/development/spotify.el")
 (require 'spotify)
+(defconst spotify-config-file ".spotify-el")
 
 (defun spotify-credentials-config-contents ()
   "Get contents of ~/.spotify-el file if it exists"
- (if (= (shell-command "stat ~/.spotify-el") 0)
-   (shell-command-to-string "cat ~/.spotify-el")
-   ""))
+  (if (= (shell-command (concat "stat ~/" spotify-config-file)) 0)
+    (shell-command-to-string (concat "cat ~/" spotify-config-file))
+    ""))
 
 (defun spotify-credentials (key)
   "Get client secret from spotify credentials in ~/.spotify-el"

@@ -50,12 +50,14 @@
 (define-key evil-motion-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-motion-state-map (kbd "C-l") 'evil-window-right)
 
+;; Window resize
+(define-key evil-motion-state-map (kbd "C->") 'enlarge-window-horizontally)
+(define-key evil-motion-state-map (kbd "C-(") 'enlarge-window)
+(define-key evil-motion-state-map (kbd "C-<") 'shrink-window-horizontally)
+(define-key evil-motion-state-map (kbd "C-)") 'shrink-window)
+
 ;; Kill all buffers of a project
 (define-key evil-motion-state-map (kbd "C-a") 'projectile-kill-buffers)
-
-;; Custom split windows
-(define-key evil-motion-state-map "-" 'evil-window-split)
-(define-key evil-motion-state-map "|" 'evil-window-vsplit)
 
 ;; Configure leader key
 (global-evil-leader-mode)
@@ -91,6 +93,7 @@
    (define-key evil-normal-state-local-map (kbd "ma") 'neotree-create-node)
    (define-key evil-normal-state-local-map (kbd "md") 'neotree-delete-node)
    (define-key evil-normal-state-local-map (kbd "r") 'neotree-refresh)
+   (define-key evil-normal-state-local-map (kbd "rr") 'neotree-change-root)
    (define-key evil-normal-state-local-map (kbd "mm") 'neotree-rename-node)
 ))
 

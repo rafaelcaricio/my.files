@@ -12,6 +12,8 @@
 	co = commit
 	com = "commit -m"
 	purr = "pull --rebase"
+	pom = "pull original master"
+	task = "checkout -b"
 	lg = "log --format='%Cgreen%h %Cred%cr %Creset%s %Cblue%cn'"
 	ll = "log --format='%Cgreen%h %Cred%cr %Creset%s %Cblue%cn'"
 	lgg = "log --graph --color --decorate"

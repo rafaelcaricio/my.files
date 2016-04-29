@@ -3,11 +3,13 @@
 ;;;;; pragmaticemacs.com/installing-and-setting-up-emacs/                    ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;; Code:
+
 ;;Add MELPA repository for packages
 (add-to-list 'package-archives
             '("melpa" . "http://melpa.org/packages/") t)
 
-(set-default-font "Inconsolata-16")
+(set-frame-font "Inconsolata-16")
 
 ;;smooth scrolling
 (setq prelude-use-smooth-scrolling t)
@@ -39,7 +41,6 @@
 (setq ido-decorations (quote ("\n↪ "     "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
 
 ;; better file matching
-(require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)
 (flx-ido-mode 1)
@@ -93,7 +94,7 @@
    (define-key evil-normal-state-local-map (kbd "ma") 'neotree-create-node)
    (define-key evil-normal-state-local-map (kbd "md") 'neotree-delete-node)
    (define-key evil-normal-state-local-map (kbd "r") 'neotree-refresh)
-   (define-key evil-normal-state-local-map (kbd "rr") 'neotree-change-root)
+   (define-key evil-normal-state-local-map (kbd "sr") 'neotree-change-root)
    (define-key evil-normal-state-local-map (kbd "mm") 'neotree-rename-node)
 ))
 
@@ -137,3 +138,6 @@
 
 (setq spotify-oauth2-client-id (spotify-credentials "client-id"))
 (setq spotify-oauth2-client-secret (spotify-credentials "client-secret"))
+
+(provide emacs_config)
+;;; emacs_config.el ends here

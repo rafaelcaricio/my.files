@@ -82,7 +82,7 @@
   "sr" 'spotify-toggle-shuffle)
 
 ;; run isort before saving python files
-(add-hook 'before-save-hook 'py-isort-before-save)
+(add-hook 'before-save-hook 'nil)
 
 ;; Commands to work in neotree
 (add-hook 'neotree-mode-hook

@@ -65,6 +65,8 @@ if [ $OSX ]; then
 
     echo "3.5.1 3.4.4 pypy-5.1.1" | xargs -n 1 pyenv install
     pyenv rehash
+    # install basic python libraries
+    $HOME/.pyenv/shims/pip3 install -U -r python_tools.txt
 fi
 
 echo "Setting rebase to be the default for the master branch on this repo..."

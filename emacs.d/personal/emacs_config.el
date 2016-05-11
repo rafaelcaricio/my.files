@@ -17,9 +17,25 @@
 ;; Don't wait for any other keys after escape is pressed.
 (setq evil-esc-delay 1)
 
+;; remove scroll bar
+(toggle-scroll-bar -1)
+(menu-bar-mode -1)
+
+;; remove useless tool bar
+(tool-bar-mode -1)
+
 ;; use the brew python version
+(require 'anaconda-mode)
 (setq anaconda-mode-server-script
-      "/usr/local/lib/python2.7/site-packages/anaconda_mode.py")
+      "~/.pyenv/versions/3.5.1/lib/python3.5/site-packages/anaconda_mode.py")
+
+
+(defun run-python-once ()
+  (remove-hook 'python-mode-hook 'run-python-once)
+  (run-python))
+
+(add-hook 'python-mode-hook 'run-python-once)
+(setq python-shell-interpreter "~/.pyenv/shims/ipython3")
 
 ;; display options
 (tool-bar-mode 1)
@@ -79,7 +95,8 @@
   "sp" 'spotify-toggle-play
   "sf" 'spotify-next-track
   "sb" 'spotify-previous-track
-  "sr" 'spotify-toggle-shuffle)
+  "sr" 'spotify-toggle-shuffle
+  "cc" 'recenter)
 
 ;; Commands to work in neotree
 (add-hook 'neotree-mode-hook
@@ -94,6 +111,12 @@
    (define-key evil-normal-state-local-map (kbd "sr") 'neotree-change-root)
    (define-key evil-normal-state-local-map (kbd "mm") 'neotree-rename-node)
 ))
+(setq neo-hidden-regexp-list '(;;"^\\."
+                                "\\.pyc$"
+                                ;;"~$"
+                                "^#.*#$"
+                                "\\.elc$"
+                                "^__pycache__$"))
 
 ;; Show the column number in the status bar
 (column-number-mode t)
@@ -136,5 +159,5 @@
 (setq spotify-oauth2-client-id (spotify-credentials "client-id"))
 (setq spotify-oauth2-client-secret (spotify-credentials "client-secret"))
 
-(provide emacs_config)
+(provide 'emacs_config)
 ;;; emacs_config.el ends here

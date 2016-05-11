@@ -1,0 +1,7 @@
+pip
+tox
+six
+anaconda_mode
+flake8
+virtualenvwrapper
+ipython

@@ -81,9 +81,6 @@
   "sb" 'spotify-previous-track
   "sr" 'spotify-toggle-shuffle)
 
-;; run isort before saving python files
-(add-hook 'before-save-hook 'nil)
-
 ;; Commands to work in neotree
 (add-hook 'neotree-mode-hook
  (lambda ()
@@ -103,7 +100,7 @@
 
 ;; Show line-number in buffer
 (add-hook 'prog-mode-hook 'linum-mode)
-(setq linum-format "%4d ")
+(setq linum-format "%4d")
 
 ;; Activate theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")

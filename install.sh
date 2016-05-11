@@ -62,6 +62,9 @@ if [ $OSX ]; then
          openssl pinentry pkg-config bash-completion json-c
     # decreases the delay repetition on keyboard
     defaults write NSGlobalDomain KeyRepeat -int 0
+
+    echo "3.5.1 3.4.4 pypy-5.1.1" | xargs -n 1 pyenv install
+    pyenv rehash
 fi
 
 echo "Setting rebase to be the default for the master branch on this repo..."

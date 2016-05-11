@@ -38,10 +38,15 @@ pushd $HOME &> /dev/null
     create_ln_for ".gitconfig" "$pwd/.gitconfig"
     create_ln_for ".zshrc" "$pwd/.zshrc"
     create_ln_for ".tmux.conf" "$pwd/.tmux.conf"
-    # remove current prelude modules to be replaced
-    rm .emacs.d/prelude-modules.el
-    create_ln_for ".emacs.d/prelude-modules.el" "$pwd/emacs.d/prelude-modules.el"
-    create_ln_for ".emacs.d/personal/emacs_config.el" "$pwd/emacs.d/personal/emacs_config.el"
+    if [ -e ".emacs.d/" ]; then
+        echo "${OK} Prelude installed! Creating links to personal configurations..."
+        # remove current prelude modules to be replaced
+        rm .emacs.d/prelude-modules.el
+        create_ln_for ".emacs.d/prelude-modules.el" "$pwd/emacs.d/prelude-modules.el"
+        create_ln_for ".emacs.d/personal/emacs_config.el" "$pwd/emacs.d/personal/emacs_config.el"
+    else
+        echo "${WARNING} Please install Emacs Prelude: https://github.com/bbatsov/prelude#installation"
+    fi
 popd &> /dev/null
 
 if [ $OSX ]; then
@@ -53,11 +58,11 @@ if [ $OSX ]; then
   ##brew install macvim --with-lua  --env-std --override-system-vim
     brew install emacs --with-cocoa
     brew install git bash-completion ack python ruby leiningen \
-      tmux reattach-to-user-namespace pyenv tree
+         tmux reattach-to-user-namespace pyenv tree wget gnupg gpg-agent \
+         openssl pinentry pkg-config bash-completion json-c
     # decreases the delay repetition on keyboard
     defaults write NSGlobalDomain KeyRepeat -int 0
 fi
 
 echo "Setting rebase to be the default for the master branch on this repo..."
 git config branch.master.rebase true
-

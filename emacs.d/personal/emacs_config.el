@@ -81,6 +81,8 @@
   "w" 'evil-window-vsplit
   "v" 'evil-window-split
   "z" 'neotree-toggle
+  "U" 'upcase-region
+  "u" 'downcase-region
   "gc" 'comment-or-uncomment-region
   "gg" 'indent-region
   "nn" 'untabify
@@ -109,6 +111,9 @@
 (setq neo-hidden-regexp-list '(;;"^\\."
                                 "\\.pyc$"
                                 ;;"~$"
+                                "^.*.egg-info"
+                                "^\\(build\\|dist\\)$"
+                                "^\.\\(eggs\\|git\\|tox\\|cache\\)$"
                                 "^#.*#$"
                                 "\\.elc$"
                                 "^__pycache__$"))

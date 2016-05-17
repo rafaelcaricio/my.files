@@ -55,4 +55,10 @@
   (package-install 'dockerfile-mode))
 (unless (package-installed-p 'py-isort)
   (package-install 'py-isort))
+(unless (package-installed-p 'spacemacs-theme)
+  (package-install 'spacemacs-theme))
+(unless (package-installed-p 'spaceline)
+  (package-install 'spaceline))
+(unless (package-installed-p 'nyan-mode)
+  (package-install 'nyan-mode))
 ;;; prelude-modules.el ends here

@@ -1,36 +1,31 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;; basic emacs configuration to be used in conjunction with prelude       ;;
-;;;;; pragmaticemacs.com/installing-and-setting-up-emacs/                    ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;; Code:
-
-;;Add MELPA repository for packages
+;; Where to get the packages
 (add-to-list 'package-archives
             '("melpa" . "http://melpa.org/packages/") t)
 
-(set-frame-font "Inconsolata-16")
+;; firulas
+(setq frame-title-format '("🔮 Emacs"))
 
-;;smooth scrolling
+;; font configurations
+(set-frame-font "Inconsolata for Powerline")
+(set-face-attribute 'default nil :height 180)
+
+;; smooth scrolling
 (setq prelude-use-smooth-scrolling t)
 
-;; Don't wait for any other keys after escape is pressed.
+;; Don't wait for any other keys after escape is pressed
 (setq evil-esc-delay 1)
 
 ;; remove scroll bar
 (toggle-scroll-bar -1)
 (menu-bar-mode -1)
 
-;; remove useless tool bar
-(tool-bar-mode -1)
-
 ;; use the brew python version
 (require 'anaconda-mode)
 (setq anaconda-mode-server-script
       "~/.pyenv/versions/3.5.1/lib/python3.5/site-packages/anaconda_mode.py")
 
-
 (defun run-python-once ()
+  "Helper function to call 'run-python' only once."
   (remove-hook 'python-mode-hook 'run-python-once)
   (run-python))
 
@@ -53,8 +48,8 @@
 (setq company-dabbrev-downcase nil) ; Do not convert to lowercase
 (setq company-selection-wrap-around t) ; continue from top when reaching bottom
 
-;; Show listing of files vertically
-(setq ido-decorations (quote ("\n↪ "     "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+;; Show listing of files vertically ↪
+(setq ido-decorations (quote ("\n👾 "     "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
 
 ;; better file matching
 (ido-mode 1)
@@ -126,12 +121,8 @@
 (setq linum-format "%4d")
 
 ;; Activate theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'dracula t)
-
-;; Highlight cursor line
-(global-hl-line-mode t)
-(set-face-background hl-line-face "gray10")
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;(load-theme 'dracula t)
 
 ;; Use 2 spaces in yaml files
 (add-hook 'yaml-mode-hook (lambda ()
@@ -159,5 +150,51 @@
 (setq spotify-oauth2-client-id (spotify-credentials "client-id"))
 (setq spotify-oauth2-client-secret (spotify-credentials "client-secret"))
 
+;; Disable flycheck for elisp
+(with-eval-after-load 'flycheck
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+
+;; remove useless tool bar
+(tool-bar-mode -1)
+
+;(defun load-spaceline ()
+;  "Defer loading of spaceline"
+;  (require 'spaceline-config)
+;  (spaceline-spacemacs-theme))
+;(add-hook 'after-init-hook #'load-spaceline)
+
+(remove-hook 'after-init-hook #'sml/setup)
+
+;; Powerline settings
+;(setq powerline-default-separator 'curve)
+(setq powerline-default-separator 'wave)
+;(setq powerline-default-separator 'butt)
+(setq powerline-height 20)
+
+;; Current theme
+(load-theme 'spacemacs-dark)
+
+;; Line configuration
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+(spaceline-toggle-buffer-encoding-off)
+(spaceline-toggle-minor-modes-off)
+(spaceline-toggle-buffer-encoding-abbrev-off)
+(spaceline-toggle-window-number-off)
+(spaceline-toggle-buffer-size-off)
+(spaceline-toggle-remote-host-off)
+(spaceline-toggle-buffer-encoding-abbrev-off)
+(spaceline-toggle-buffer-position-off)
+(spaceline-toggle-which-function-off)
+
+;; fix bronke separator colors
+(setq ns-use-srgb-colorspace nil)
+
+;; Start in full screen mode
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+
+(nyan-mode 1)
+(nyan-start-animation)
+
 (provide 'emacs_config)
-;;; emacs_config.el ends here

@@ -1,5 +1,3 @@
-;;; package --- Summary
-;;; Commentary:
 ;;; Uncomment the modules you'd like to use and restart Prelude afterwards
 
 ;;; Code:
@@ -61,4 +59,5 @@
   (package-install 'spaceline))
 (unless (package-installed-p 'nyan-mode)
   (package-install 'nyan-mode))
-;;; prelude-modules.el ends here
+(unless (package-installed-p 'yasnippet)
+  (package-install 'yasnippet))

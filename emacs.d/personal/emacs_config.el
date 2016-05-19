@@ -1,6 +1,7 @@
 ;; Where to get the packages
 (add-to-list 'package-archives
             '("melpa" . "http://melpa.org/packages/") t)
+(package-refresh-contents)
 
 ;; firulas
 (setq frame-title-format '("🔮 Emacs"))
@@ -125,14 +126,19 @@
 (add-hook 'prog-mode-hook 'linum-mode)
 (setq linum-format "%4d")
 
-;; Activate theme
-;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-;(load-theme 'dracula t)
-
 ;; Use 2 spaces in yaml files
 (add-hook 'yaml-mode-hook (lambda ()
                             (setq evil-shift-width 2)
                             (setq tab-width 2)))
+
+;; Use 2 spaces in json files
+(add-hook 'json-mode-hook (lambda ()
+                            (setq evil-shift-width 2)
+                            (setq tab-width 2)))
+
+;; Use snippets everywhere
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;; Spotify client configuration
 (add-to-list 'load-path "~/development/spotify.el")
@@ -161,12 +167,6 @@
 
 ;; remove useless tool bar
 (tool-bar-mode -1)
-
-;(defun load-spaceline ()
-;  "Defer loading of spaceline"
-;  (require 'spaceline-config)
-;  (spaceline-spacemacs-theme))
-;(add-hook 'after-init-hook #'load-spaceline)
 
 (remove-hook 'after-init-hook #'sml/setup)
 

@@ -5,3 +5,4 @@ anaconda_mode
 flake8
 virtualenvwrapper
 ipython
+mypy-lang

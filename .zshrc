@@ -25,6 +25,10 @@ source $ZSH/oh-my-zsh.sh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# Make sure development dir exists
+mkdir -p ~/development
+export DEV_HOME=~/development
+
 ulimit -n 2048
 
 # Larger bash history (allow 32³ entries; default is 500)
@@ -40,7 +44,7 @@ export PYTHONDONTWRITEBYTECODE=x
 # virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
-VIRTUALENV_DISTRIBUTE=1
+export VIRTUALENV_DISTRIBUTE=1
 
 # pyenv configuration
 export PYENV_ROOT="$HOME/.pyenv"

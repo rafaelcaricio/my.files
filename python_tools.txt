@@ -1,8 +1,8 @@
 pip
 tox
 six
+ipython
 anaconda_mode
 flake8
 virtualenvwrapper
-ipython
 mypy-lang

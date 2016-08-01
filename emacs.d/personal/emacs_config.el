@@ -21,7 +21,6 @@
 (menu-bar-mode -1)
 
 ;; use the brew python version
-(require 'anaconda-mode)
 (setq anaconda-mode-server-script
       (expand-file-name "~/.pyenv/versions/3.5.1/lib/python3.5/site-packages/anaconda_mode.py"))
 

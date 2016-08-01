@@ -26,5 +26,6 @@
 	helper = osxkeychain
 [core]
 	editor = vim
+	commentchar = &
 [push]
 	default = tracking

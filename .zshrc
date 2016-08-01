@@ -57,3 +57,8 @@ if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
 else
   eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
 fi
+
+# General aliases
+
+# push new branch in remote
+alias pushpr='git push 2>&1 | grep git | sed -e "$!d" | xargs -ICMD bash -c "CMD"'

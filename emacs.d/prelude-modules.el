@@ -61,3 +61,5 @@
   (package-install 'nyan-mode))
 (unless (package-installed-p 'yasnippet)
   (package-install 'yasnippet))
+(unless (package-installed-p 'writeroom-mode)
+  (package-install 'writeroom-mode))

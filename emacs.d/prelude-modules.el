@@ -63,3 +63,5 @@
   (package-install 'yasnippet))
 (unless (package-installed-p 'writeroom-mode)
   (package-install 'writeroom-mode))
+(unless (package-installed-p 'iedit)
+  (package-install 'iedit))

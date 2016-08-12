@@ -16,6 +16,9 @@
 ;; Don't wait for any other keys after escape is pressed
 (setq evil-esc-delay 1)
 
+;; a little longer line length allowed
+(setq whitespace-line-column 120)
+
 ;; remove scroll bar
 (toggle-scroll-bar -1)
 (menu-bar-mode -1)
@@ -93,7 +96,8 @@
   "sf" 'spotify-next-track
   "sb" 'spotify-previous-track
   "sr" 'spotify-toggle-shuffle
-  "cc" 'recenter)
+  "cc" 'recenter
+  "rn" 'iedit-mode)
 
 ;; Commands to work in neotree
 (add-hook 'neotree-mode-hook

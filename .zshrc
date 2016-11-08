@@ -50,6 +50,11 @@ export VIRTUALENV_DISTRIBUTE=1
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PATH"
 
+# golang configuration
+mkdir -p $DEV_HOME/go
+export GOPATH=$DEV_HOME/go
+export PATH="$GOPATH/bin:$PATH"
+
 # GPG agent configuration
 [ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
 if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
@@ -62,3 +67,4 @@ fi
 
 # push new branch in remote
 alias pushpr='git push 2>&1 | grep git | sed -e "$!d" | xargs -ICMD bash -c "CMD"'
+

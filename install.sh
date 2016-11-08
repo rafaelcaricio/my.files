@@ -36,6 +36,7 @@ pwd=$PWD
 
 pushd $HOME &> /dev/null
     create_ln_for ".gitconfig" "$pwd/.gitconfig"
+    create_ln_for ".gitignore" "$pwd/.gitignore"
     create_ln_for ".zshrc" "$pwd/.zshrc"
     create_ln_for ".tmux.conf" "$pwd/.tmux.conf"
     if [ -e ".emacs.d/" ]; then

@@ -33,7 +33,8 @@
   (run-python))
 
 (add-hook 'python-mode-hook 'run-python-once)
-(setq python-shell-interpreter "~/.pyenv/shims/ipython3")
+(setq python-shell-interpreter "~/.pyenv/shims/ipython3"
+   python-shell-interpreter-args "--simple-prompt -i")
 
 ;; display options
 (tool-bar-mode 1)

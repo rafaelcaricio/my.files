@@ -29,3 +29,5 @@
 	commentchar = &
 [push]
 	default = tracking
+[gpg]
+	program = gpg2

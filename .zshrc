@@ -55,16 +55,16 @@ mkdir -p $DEV_HOME/go
 export GOPATH=$DEV_HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
+# Java configuration
+export JAVA_HOME=`/usr/libexec/java_home`
+
 # GPG agent configuration
-[ -f ~/.gpg-agent-info ] && source ~/.gpg-agent-info
-if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
-  export GPG_AGENT_INFO
-else
-  eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
-fi
+gpgconf --launch gpg-agent
+
+# Ensure that GPG Agent is used as the SSH agent
+export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
 
 # General aliases
 
 # push new branch in remote
 alias pushpr='git push 2>&1 | grep git | sed -e "$!d" | xargs -ICMD bash -c "CMD"'
-

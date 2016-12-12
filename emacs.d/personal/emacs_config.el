@@ -172,6 +172,8 @@
 ;; remove useless tool bar
 (tool-bar-mode -1)
 
+(elpy-enable)
+
 (remove-hook 'after-init-hook #'sml/setup)
 
 ;; Powerline settings

@@ -39,29 +39,45 @@
 
 (unless (package-installed-p 'evil-leader)
   (package-install 'evil-leader))
+
 (unless (package-installed-p 'neotree)
   (package-install 'neotree))
+
 (unless (package-installed-p 'flx-ido)
   (package-install 'flx-ido))
+
 (unless (package-installed-p 'dracula-theme)
   (package-install 'dracula-theme))
+
 (unless (package-installed-p 'mmm-mode)
   (package-install 'mmm-mode))
+
 (unless (package-installed-p 'markdown-mode)
   (package-install 'markdown-mode))
+
 (unless (package-installed-p 'dockerfile-mode)
   (package-install 'dockerfile-mode))
+
 (unless (package-installed-p 'py-isort)
   (package-install 'py-isort))
+
 (unless (package-installed-p 'spacemacs-theme)
   (package-install 'spacemacs-theme))
+
 (unless (package-installed-p 'spaceline)
   (package-install 'spaceline))
+
 (unless (package-installed-p 'nyan-mode)
   (package-install 'nyan-mode))
+
 (unless (package-installed-p 'yasnippet)
   (package-install 'yasnippet))
+
 (unless (package-installed-p 'writeroom-mode)
   (package-install 'writeroom-mode))
+
 (unless (package-installed-p 'iedit)
   (package-install 'iedit))
+
+(unless (package-installed-p 'elpy)
+  (package-install 'elpy))

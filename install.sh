@@ -4,6 +4,7 @@ OK=`printf "\033[1;32m✓\033[0m"`
 WARNING=`printf "\033[1;33m⚠\033[0m"`
 ERROR=`printf "\033[1;31m✖\033[0m"`
 OSX=$(test "`uname`" == "Darwin" && echo "x")
+LINUX=$(test "`uname`" == "Linux" && echo "x")
 
 # highlights values
 hl() {
@@ -63,10 +64,18 @@ if [ $OSX ]; then
          openssl pinentry pkg-config bash-completion json-c
     # decreases the delay repetition on keyboard
     defaults write NSGlobalDomain KeyRepeat -int 0
+fi
 
-    echo "3.5.1 3.4.4 pypy-5.1.1" | xargs -n 1 pyenv install
+if [ $LINUX ]; then
+    if command_exists dnf; then
+        sudo dnf install -y xclip wget
+    fi
+fi
+
+if command_exists pyenv; then
+    echo "3.5.3 3.4.6 pypy-5.6.0" | xargs -n 1 pyenv install
     pyenv rehash
-    pyenv global 3.5.1
+    pyenv global 3.5.3
     # install basic python libraries
     $HOME/.pyenv/shims/pip3 install -U -r python_tools.txt
 fi

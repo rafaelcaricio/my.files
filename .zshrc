@@ -17,7 +17,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew django github pip python npm node rvm)
+plugins=(git github pip python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -43,12 +43,12 @@ export PYTHONDONTWRITEBYTECODE=x
 
 # virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENV_DISTRIBUTE=1
 
 # pyenv configuration
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
+export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
 
 # golang configuration
 mkdir -p $DEV_HOME/go
@@ -56,7 +56,7 @@ export GOPATH=$DEV_HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
 # Java configuration
-export JAVA_HOME=`/usr/libexec/java_home`
+# export JAVA_HOME=`/usr/libexec/java_home`
 
 # GPG agent configuration
 gpgconf --launch gpg-agent

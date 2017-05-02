@@ -73,11 +73,11 @@ if [ $LINUX ]; then
 fi
 
 if command_exists pyenv; then
-    echo "3.5.3 3.4.6 pypy-5.6.0" | xargs -n 1 pyenv install
+    echo "3.6.1 3.5.3 2.7.13" | xargs -n 1 sudo pyenv install
     pyenv rehash
-    pyenv global 3.5.3
+    sudo pyenv global 3.6.1
     # install basic python libraries
-    $HOME/.pyenv/shims/pip3 install -U -r python_tools.txt
+    sudo $HOME/.pyenv/shims/pip install -U -r python_tools.txt
 fi
 
 echo "Setting rebase to be the default for the master branch on this repo..."

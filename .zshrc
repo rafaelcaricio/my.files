@@ -41,14 +41,14 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # do not create .pyc files
 export PYTHONDONTWRITEBYTECODE=x
 
-# virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-#source /usr/local/bin/virtualenvwrapper.sh
-export VIRTUALENV_DISTRIBUTE=1
-
 # pyenv configuration
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
+
+# virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+source ~/.pyenv/versions/3.6.1/bin/virtualenvwrapper.sh
+export VIRTUALENV_DISTRIBUTE=1
 
 # golang configuration
 mkdir -p $DEV_HOME/go
@@ -64,7 +64,23 @@ gpgconf --launch gpg-agent
 # Ensure that GPG Agent is used as the SSH agent
 export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
 
+# Ensure ssh agent is running
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent`
+    ssh-add
+fi
+
 # General aliases
 
 # push new branch in remote
 alias pushpr='git push 2>&1 | grep git | sed -e "$!d" | xargs -ICMD bash -c "CMD"'
+
+# dev env
+PATH_TO_MONOREPO=$DEV_HOME/newstore
+if [ -f "${PATH_TO_MONOREPO}/tools/environment.sh" ]; then
+  cd $PATH_TO_MONOREPO && source "${PATH_TO_MONOREPO}/tools/environment.sh"
+fi
+
+cd $DEV_HOME
+export PATH="/usr/local/opt/go@1.7/bin:$PATH"
+

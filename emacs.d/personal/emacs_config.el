@@ -25,7 +25,7 @@
 
 ;; use the brew python version
 (setq anaconda-mode-server-script
-      (expand-file-name "~/.pyenv/versions/3.5.1/lib/python3.5/site-packages/anaconda_mode.py"))
+      (expand-file-name "~/.pyenv/versions/3.6.1/lib/python3.5/site-packages/anaconda_mode.py"))
 
 (defun run-python-once ()
   "Helper function to call 'run-python' only once."
@@ -93,10 +93,6 @@
   "ns" 'delete-trailing-whitespace
   "is" 'py-isort-buffer
   "bd" 'kill-this-buffer
-  "sp" 'spotify-toggle-play
-  "sf" 'spotify-next-track
-  "sb" 'spotify-previous-track
-  "sr" 'spotify-toggle-shuffle
   "cc" 'recenter
   "rn" 'iedit-mode)
 
@@ -143,27 +139,6 @@
 ;; Use snippets everywhere
 (require 'yasnippet)
 (yas-global-mode 1)
-
-;; Spotify client configuration
-(add-to-list 'load-path "~/development/spotify.el")
-(require 'spotify)
-(defconst spotify-config-file ".spotify-el")
-
-(defun spotify-credentials-config-contents ()
-  "Get contents of ~/.spotify-el file if it exists"
-  (if (= (shell-command (concat "stat ~/" spotify-config-file)) 0)
-    (shell-command-to-string (concat "cat ~/" spotify-config-file))
-    ""))
-
-(defun spotify-credentials (key)
-  "Get client secret from spotify credentials in ~/.spotify-el"
-  (let ((credentials (spotify-credentials-config-contents)))
-    (save-match-data
-      (string-match (concat (concat "^" key) "=\\([^\s\n]+\\)") credentials)
-      (match-string 1 credentials))))
-
-(setq spotify-oauth2-client-id (spotify-credentials "client-id"))
-(setq spotify-oauth2-client-secret (spotify-credentials "client-secret"))
 
 ;; Disable flycheck for elisp
 (with-eval-after-load 'flycheck

@@ -49,6 +49,11 @@ pushd $HOME &> /dev/null
     else
         echo "${WARNING} Please install Emacs Prelude: https://github.com/bbatsov/prelude#installation"
     fi
+
+    mkdir -p "$pwd/.vim/autoload"
+    curl -fLo "$pwd/.vim/autoload/plug.vim" --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 popd &> /dev/null
 
 if [ $OSX ]; then

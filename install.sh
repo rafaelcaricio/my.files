@@ -62,7 +62,7 @@ if [ $OSX ]; then
       echo "Installing brew..."
       ruby -e "`curl -fsSkL raw.github.com/mxcl/homebrew/go`"
     fi
-  ##brew install macvim --with-lua  --env-std --override-system-vim
+    brew install macvim --with-lua  --env-std --override-system-vim
     brew install emacs --with-cocoa
     brew install git bash-completion ack python ruby leiningen \
          tmux reattach-to-user-namespace pyenv tree wget gnupg gpg-agent \

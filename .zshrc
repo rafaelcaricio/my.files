@@ -61,13 +61,13 @@ export PATH="$GOPATH/bin:$PATH"
 # GPG agent configuration
 gpgconf --launch gpg-agent
 
-# Ensure that GPG Agent is used as the SSH agent
-export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
-
 # Ensure ssh agent is running
 if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval `ssh-agent`
-    ssh-add
+  eval `ssh-agent -s`
+  ssh-add ~/.ssh/id_rsa
+
+  # Ensure that GPG Agent is used as the SSH agent
+  export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
 fi
 
 # General aliases
@@ -84,3 +84,5 @@ fi
 cd $DEV_HOME
 export PATH="/usr/local/opt/go@1.7/bin:$PATH"
 
+alias ls='ls -G --color'
+export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"

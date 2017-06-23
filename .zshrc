@@ -77,9 +77,6 @@ alias pushpr='git push 2>&1 | grep git | sed -e "$!d" | xargs -ICMD bash -c "CMD
 
 # dev env
 PATH_TO_MONOREPO=$DEV_HOME/newstore
-if [ -f "${PATH_TO_MONOREPO}/tools/environment.sh" ]; then
-  cd $PATH_TO_MONOREPO && source "${PATH_TO_MONOREPO}/tools/environment.sh"
-fi
 
 cd $DEV_HOME
 export PATH="/usr/local/opt/go@1.7/bin:$PATH"

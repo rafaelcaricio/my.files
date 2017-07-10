@@ -1,6 +1,7 @@
 pip
 tox
 six
+isort
 ipython
 anaconda_mode
 flake8

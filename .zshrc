@@ -46,9 +46,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
 
 # virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-source ~/.pyenv/versions/3.6.1/bin/virtualenvwrapper.sh
-export VIRTUALENV_DISTRIBUTE=1
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # golang configuration
 mkdir -p $DEV_HOME/go
@@ -81,5 +79,5 @@ PATH_TO_MONOREPO=$DEV_HOME/newstore
 cd $DEV_HOME
 export PATH="/usr/local/opt/go@1.7/bin:$PATH"
 
-alias ls='ls -G --color'
+alias ls='ls -G'
 export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"

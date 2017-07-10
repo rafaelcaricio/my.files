@@ -65,7 +65,7 @@ if [ $OSX ]; then
     brew install macvim --with-lua  --env-std --override-system-vim
     brew install emacs --with-cocoa
     brew install git bash-completion ack python ruby leiningen \
-         tmux reattach-to-user-namespace pyenv tree wget gnupg gpg-agent \
+         tmux reattach-to-user-namespace pyenv pyenv-virtualenv tree wget gnupg gpg-agent \
          openssl pinentry pkg-config bash-completion json-c
     # decreases the delay repetition on keyboard
     defaults write NSGlobalDomain KeyRepeat -int 0

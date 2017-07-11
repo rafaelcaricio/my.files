@@ -38,6 +38,7 @@ pwd=$PWD
 pushd $HOME &> /dev/null
     create_ln_for ".gitconfig" "$pwd/.gitconfig"
     create_ln_for ".gitignore" "$pwd/.gitignore"
+    create_ln_for ".rc_common.sh" "$pwd/.rc_common.sh"
     create_ln_for ".zshrc" "$pwd/.zshrc"
     create_ln_for ".bashrc" "$pwd/.bashrc"
     create_ln_for ".tmux.conf" "$pwd/.tmux.conf"

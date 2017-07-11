@@ -17,7 +17,11 @@
 (setq evil-esc-delay 1)
 
 ;; a little longer line length allowed
-(setq whitespace-line-column 120)
+(defvar custom-max-line-length 120)
+(setq whitespace-line-column custom-max-line-length)
+(setq-default flycheck-flake8-maximum-line-length custom-max-line-length)
+(setq-default flymake-python-pyflakes-extra-arguments (list (format "--max-line-length=%d" custom-max-line-length)))
+(global-flycheck-mode)
 
 ;; remove scroll bar
 (toggle-scroll-bar -1)
@@ -35,6 +39,7 @@
 (add-hook 'python-mode-hook 'run-python-once)
 (setq python-shell-interpreter "~/.pyenv/shims/ipython3"
    python-shell-interpreter-args "--simple-prompt -i")
+
 
 ;; display options
 (tool-bar-mode 1)
@@ -68,9 +73,9 @@
 
 ;; Window resize
 (define-key evil-motion-state-map (kbd "C->") 'enlarge-window-horizontally)
-(define-key evil-motion-state-map (kbd "C-(") 'enlarge-window)
+(define-key evil-motion-state-map (kbd "C-m") 'enlarge-window)
 (define-key evil-motion-state-map (kbd "C-<") 'shrink-window-horizontally)
-(define-key evil-motion-state-map (kbd "C-)") 'shrink-window)
+(define-key evil-motion-state-map (kbd "C-n") 'shrink-window)
 
 ;; Kill all buffers of a project
 (define-key evil-motion-state-map (kbd "C-a") 'projectile-kill-buffers)

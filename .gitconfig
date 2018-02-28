@@ -1,7 +1,6 @@
 [user]
 	email = rafael@caricio.com
 	name = Rafael Caricio
-	signingkey = 531B29F5
 [color]
 	ui = always
 	status = auto
@@ -10,8 +9,8 @@
 	diff = auto
 [alias]
 	st = status
-	co = "commit -S"
-	com = "commit -S -m"
+	co = "commit"
+	com = "commit -m"
 	purr = "pull --rebase"
 	pom = "pull original master"
 	task = "checkout -b"

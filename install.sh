@@ -66,9 +66,9 @@ if [ $OSX ]; then
     fi
     brew install macvim --with-lua  --env-std --override-system-vim
     brew install emacs --with-cocoa
-    brew install git bash-completion ack python ruby leiningen \
-         tmux reattach-to-user-namespace pyenv pyenv-virtualenv tree wget gnupg gpg-agent \
-         openssl pinentry pkg-config bash-completion json-c
+    brew install git bash-completion ack \
+         tmux reattach-to-user-namespace pyenv pyenv-virtualenv tree wget gnupg \
+         openssl pinentry pkg-config bash-completion jsonpp json-c
     # decreases the delay repetition on keyboard
     defaults write NSGlobalDomain KeyRepeat -int 0
 fi
@@ -80,11 +80,11 @@ if [ $LINUX ]; then
 fi
 
 if command_exists pyenv; then
-    echo "3.6.1 3.5.3 2.7.13" | xargs -n 1 sudo pyenv install
+    echo "3.6.4 2.7.14" | xargs -n 1 pyenv install
     pyenv rehash
-    sudo pyenv global 3.6.1
+    pyenv global 3.6.4
     # install basic python libraries
-    sudo $HOME/.pyenv/shims/pip install -U -r python_tools.txt
+    $HOME/.pyenv/shims/pip install -U -r python_tools.txt
 fi
 
 echo "Setting rebase to be the default for the master branch on this repo..."
